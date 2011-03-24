@@ -1,0 +1,41 @@
+<h1>Exante : New Event</h1>
+
+<form id="frm_newevent">
+	<fieldset>
+		<legend>Create a new Event</legend>
+		<ul>
+			<li>
+				<label for="title">Title</label><input type="text" id="title" placeholder="Enter event title" />
+			</li>
+
+			<li>
+				<label for="start_date">When</label> <input type="date" id="start_date" placeholder="Enter start date" /> <input type="time" id="start_time" placeholder="Enter start time" /> <span>to </span> <input type="time" id="end_time" placeholder="Enter end time" /> <input type="date" id="end_date" placeholder="Enter end date" /> <input type="checkbox" id="all_day" /> <span>All day</span>
+			</li>
+
+			<li>
+				<label for="location">Where</label> <input type="text" id="location" placeholder="Enter address or location" />
+			</li>
+
+			<li>
+				<label for="description">Description</label> <textarea id="description" rows="4" cols="30" wrap="soft" placeholder="Enter a small description about event"></textarea>
+			</li>
+
+			<li>
+				<label for="invitees_email">Invitees</label> <textarea id="invitees_email" rows="4" cols="30" wrap="soft" placeholder="Enter invitees email addresses, each separated by ;"></textarea>
+			</li>
+
+			<li>
+				<fieldset>
+					<legend>Visibility</legend>
+					<label><input type="radio" id="visibility" value="0" /> Private </label>
+					<label><input type="radio" id="visibility" value="1" /> Public </label>
+				</fieldset>
+			</li>
+		</ul>
+
+		<fieldset>
+			<button type="submit">Save</button>
+			<button type="button">Discard</button>
+		</fieldset>
+	</fieldset>
+</form>
