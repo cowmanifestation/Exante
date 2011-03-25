@@ -1,2 +1,2 @@
-require './exante.rb'
+require 'exante'
 run Sinatra::Application
