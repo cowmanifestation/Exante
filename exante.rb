@@ -1,14 +1,15 @@
 require 'rubygems'
 require 'sinatra'
 
-# This is the main controller
 
 get '/' do
-	"Welcome to Exante Project. Nothing to see here"
+	erb :home
 end
 
-get '/new-event' do
+get '/create' do
+	erb :create
+end
 
-	erb :new_event_form
-
+get '/list' do
+	erb :list
 end

@@ -1,9 +1,35 @@
-<html>
-  <head>
- 	<title>{title}</title> 
-	<link rel="stylesheet" href="/css/main.css" media="screen" />
-  </head>
-  <body>
-    <%= yield %>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    
+    <title>Exante</title>
+    
+    <meta name="description" content="An event planning application">
+    
+    <link rel="stylesheet" href="css/screen.css">
+    
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0" />
+
+</head>
+
+<body>
+    <div class="page">
+	  <div class="header section">
+		  <h1><a href="/">Exante App</a></h1>
+		  <!--div class="nav section">
+		  <ul>
+			  <li><a href="/create">Create</a></li>
+		  </ul>
+		  </div><!-- /nav -->
+	  </div><!-- /header -->
+	  <hr />
+	  <%= yield %>
+	  <hr />
+	  <div class="footer section">
+		  <p class="copyright">Copyright &copy; 2005 - 2011 Arunan Skanthan.</p>
+	  </div><!-- /footer -->
+    </div>
+</body>
 </html>

@@ -1,0 +1,35 @@
+<h1>Create Event</h1>
+<form method="post" action="/list">
+  <fieldset>
+    <legend>Event Details</legend>
+    <label for="event-title">Title</label><br />
+    <input type="text" title="What is the event called?" maxlength="" size="" name="event-title" id="event-title" value="">
+    <fieldset>
+      <legend>When</legend>
+      <fieldset>
+        <legend>From</legend>
+        <label for="start-date">Start Date</label><br />
+        <input type="text" title="When does it start?" name="start-date" id="start-date" value="" placeholder="dd/mm/yy"><br />
+        <label for="start-time">Start Time</label><br />
+        <input type="text" title="What time does it start at?" name="start-time" id="start-time" value="" placeholder="1.00 p.m."><br />
+      </fieldset>
+      <fieldset>
+        <legend>To</legend>
+        <label for="end-date">End Date</label><br />
+        <input type="text" title="When does it end?" name="end-date" id="end-date" value="" placeholder="dd/mm/yy"><br />
+        <label for="end-time">End Time</label><br />
+        <input type="text" title="What time does it end at?" name="end-time" id="end-time" value="" placeholder="1.00 p.m."><br />
+      </fieldset>
+      <input type="checkbox" title="This event lasts 24 hours" name="all-day" id="all-day" value="All Day"><label for="all-day">All Day</label><br />
+    </fieldset>
+    <label for="event-location">Location</label><br />
+    <input type="text" title="Where is it happening?" maxlength="" size="" name="event-location" id="event-location" value=""><br />
+    <label for="event-description">Description</label><br />
+    <textarea title="Enter a short description of the event" name="event-description" id="event-description" rows="5" cols="25"></textarea><br />
+    <label for="guest-list">Guests</label><br />
+    <textarea title="Guest email address list. One per-line." name="guest-list" id="guest-list" rows="5" cols="25"></textarea><br />
+    <input type="checkbox" title="This event is private" name="privacy-setting" id="privacy-setting" value="Private"><label for="privacy-setting">Private</label><br />
+    <input type="submit" value="Create" />
+    <a href="/">Cancel</a>
+  </fieldset>
+</form>
