@@ -1,19 +1,15 @@
-Welcome to the Exante project
------------------------------
+= Exante
+A web based tool that helps individuals/groups to organize foss events.
 
-What is it?
-----------
-It's a web based tool that helps individuals/groups to organize foss events.
+== Authors
+	@geekaholic
+	@askalot
 
-Long term Objective
--------------------
+== Long term Objective
 To  develop a collaboration tool for organizing FOSS events.
 
-Short term Goal
---------------
-
+==Short term Goal
 To develop an event calendar for a group to download and setup within their infrastructure to capture all their up coming events. This event calendar will make use of social networking to publicize the event . The system should be accessible from a standard and mobile browser where the browser experience adapts accordingly. 
 
-License
--------
+== License
 Unless otherwise specified all code is released under GPL v3. See http://www.gnu.org/licenses/gpl.html
