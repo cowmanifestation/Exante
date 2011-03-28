@@ -70,6 +70,13 @@ post '/event/create' do
 
 end
 
+# View an event
+get '/event/:id' do
+	@event = Event.get(params[:id])
+
+	erb :view_event
+end
+
 post '/list' do
 	@title = "List all events"
 	erb :list
