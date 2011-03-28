@@ -1,11 +1,9 @@
 require 'rubygems'
 require 'sinatra'
-require 'dm-core'
-require 'dm-migrations'
-require 'dm-timestamps'
+require 'data_mapper'
 
 # gem install sqlite do_sqlite3 datamapper
-DataMapper::setup(:default, "sqlite3://#{Dir.pwd}/db/exante.db")
+DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/db/exante.db")
 
 class Event
 	
@@ -20,7 +18,7 @@ class Event
 	property :end_time,			DateTime
 	property :all_day,			Boolean
 	property :location,			Text
-	property :guest_list,		String
+	property :guest_list,		Text
 	property :private_event,	Boolean
 	
 end
@@ -32,9 +30,9 @@ get '/' do
 	erb :home
 end
 
-get '/create' do
+get '/event/new' do
 	@title = "Create new event"
-	erb :create
+	erb :new_event
 end
 
 post '/list' do
