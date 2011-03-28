@@ -1,6 +1,9 @@
 = Exante
 A web based tool that helps individuals/groups to organize foss events.
 
+== Installation
+	sudo bundle install
+
 == Long term Objective
 To  develop a collaboration tool for organizing FOSS events.
 
@@ -11,7 +14,7 @@ To develop an event calendar for a group to download and setup within their infr
 Unless otherwise specified all code is released under GPL v3. See http://www.gnu.org/licenses/gpl.html
 
 == Why?
-To help FOSS event planners and orgainsers.
+No decent FOSS event planners exist.
 
 == Compatibility
 Requires ruby 1.9.2.
