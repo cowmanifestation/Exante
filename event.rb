@@ -73,9 +73,16 @@ post '/event/create' do
 		redirect '/event/' + event.id.to_s
 	else
 		status 412
-		redirect '/list'
+		redirect '/event/all'
 	end
 
+end
+
+# List event
+get '/event/all' do
+	@title = "List all events"
+	@events = Event.all(:order => [:id.desc])
+	erb :list_event
 end
 
 # View an event
@@ -85,16 +92,10 @@ get '/event/:id' do
 	erb :view_event
 end
 
-get '/list' do
-	@title = "List all events"
-	@events = Event.all(:order => [:id.desc])
-	erb :list
-end
-
-get '/delete/:id' do
+get '/event/:id/delete' do
 	event = Event.get(params[:id])
 	unless event.nil?
 		event.destroy
 	end
-	redirect('/list')
+	redirect('/event/all')
 end
