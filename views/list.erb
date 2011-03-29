@@ -1,1 +1,8 @@
-<!-- list of events goes here -->
+<table border="0" cellpadding="0" cellspacing="10" class="list">
+    <% @events.each_with_index do |event,i| %>
+        <tr <%= 'class="alt"' if i%2==1 %>>
+        <td><a href="/event/<%= event.id %>"></a><%= event.title %></td>
+        <td><a href="/delete/<%= event.id %>">delete</a></td>
+        </tr>
+    <% end %>
+</table>
