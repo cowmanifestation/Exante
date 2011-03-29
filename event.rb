@@ -49,16 +49,16 @@ post '/event/create' do
 	event.guest_list = params[:guest_list]
 
 	start_date = params[:start_date]
-	event.start_date = Date.strptime(start_date, "%Y-%m-%d")
+	event.start_date = Date.strptime(start_date, "%Y-%m-%d") unless start_date
 
 	start_time = params[:start_time]
-	event.start_time = DateTime.strptime("#{start_date} #{start_time}", "%Y-%m-%d %H:%M")
+	event.start_time = DateTime.strptime("#{start_date} #{start_time}", "%Y-%m-%d %H:%M") unless start_time
 
 	end_date = params[:end_date]
-	event.end_date = Date.strptime(end_date, "%Y-%m-%d")
+	event.end_date = Date.strptime(end_date, "%Y-%m-%d") unless end_date
 
 	end_time = params[:end_time]
-	event.end_time = DateTime.strptime("#{end_date} #{end_time}", "%Y-%m-%d %H:%M")
+	event.end_time = DateTime.strptime("#{end_date} #{end_time}", "%Y-%m-%d %H:%M") unless end_time
 
 	# TODO: Handle All day events
 
