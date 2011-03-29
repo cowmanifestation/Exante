@@ -1,5 +1,5 @@
 require 'rubygems'
-require 'bundler/setup'
+#require 'bundler/setup'
 
 require 'sinatra'
 require 'data_mapper'
@@ -41,6 +41,7 @@ end
 # New event form
 get '/event/new' do
 	@title = "Create new event"
+	@script = "event.js"
 	erb :new_event
 end
 
