@@ -6,6 +6,10 @@ $(document).ready(function() {
     
     // All day toggle
     $('#all_day').click(function(){
-        $("#to-date-time").toggle();
+		// Don't show time
+        $("#start_time").toggle();
+		$("label[for='start_time']").toggle();
+        $("#end_time").toggle();
+		$("label[for='end_time']").toggle();
     });
 });
