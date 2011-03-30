@@ -34,13 +34,13 @@ before do
 end
 
 get '/' do
-	@title = "Welcome"
+	@title = "Hello there!!!"
 	erb :home
 end
 
 # New event form
 get '/event/new' do
-	@title = "Create new event"
+	@title = "Create new event, go on..."
 	@script = "event.js"
 	erb :new_event
 end
@@ -80,7 +80,7 @@ end
 
 # List event
 get '/event/all' do
-	@title = "List all events"
+	@title = "Wow, a list of events!"
 	@events = Event.all(:order => [:id.desc])
 	erb :list_event
 end

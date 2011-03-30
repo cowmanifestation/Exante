@@ -1,82 +1,30 @@
 /*
  Title:		Exante Master Styles
  Author:	<arunan.skanthan@gmail.com>
- Copyright:	2011, Exante
+ License:	GPL (www.gnu.org/licenses/gpl.html)
 */
-
-@import url(http://fonts.googleapis.com/css?family=Dancing+Script);
-@import url(http://fonts.googleapis.com/css?family=Droid+Sans);
-
-/* http://meyerweb.com/eric/tools/css/reset/ */
-/* v1.0 | 20080212 */
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, font, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	outline: 0;
-	font-size: 100%;
-	vertical-align: baseline;
-	background: transparent;
-}
-body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-
-/* remember to define focus styles! */
-:focus {
-	outline: 0;
-}
-
-/* remember to highlight inserts somehow! */
-ins {
-	text-decoration: none;
-}
-del {
-	text-decoration: line-through;
-}
-
-/* tables still need 'cellspacing="0"' in the markup */
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
 
 /*
-	COLORS
-	---------------------------------------------
-	Lightest Red:	#ef2929;
-	Light Red:	#cc0000;
+ COLOUR PALETTE
+ ---------------------------------------------
+ Lightest Red:		#ef2929;
+ Light Red:			#cc0000;
 */
 
+@import url(reset.css);
+
 body {
-    background: url(../images/body-bg.gif);
-    font: normal 100% Palatino,Georgia,Times,serif;
-    line-height: 1.5em;
+	font: normal 100% Palatino,Georgia,Times,serif;
+	line-height: 1.5em;
+}
+
+hr {
+	display: none;
 }
 
 .page {
-    margin: 0 auto;
-    max-width: 60em; /* 960px / 16px = 60em */
+	margin: 0 auto;
+	max-width: 60em; /* 960px / 16px = 60em */
 }
 
 .section:after {
@@ -87,80 +35,171 @@ body {
 	visibility: hidden;
 }
 
-hr {
-    display: none;
-}
-
-a {
-    text-decoration: none;
-}
-
 .amp {
-    font-family: Baskerville,Garamond,Palatino,"Palatino Linotype","Hoefler Text","Times New Roman",serif;
-    font-style: italic;
+	font-family: Baskerville,Garamond,Palatino,"Palatino Linotype","Hoefler Text","Times New Roman",serif;
+	font-style: italic;
 }
 
 .btn {
-    background: #333;
-    color: #fff;
-    margin: 0.3125em;
-    padding: 0.3125em 0.625em;
-    text-align: center;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
+	background: #333;
+	color: #fff;
+	margin: 0.3125em;
+	padding: 0.3125em 0.625em;
+	text-align: center;
+	text-decoration: none;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
 }
 
 .btn:hover {
-    background: #666;
+	background: #666;
 }
 
 /* =HEADER
 --------------------------------------------- */
 
 .header {
-    background: #000;
-    background: rgba(0,0,0,0.9);
-    margin: 1em 0;
-    padding: 0.5em 1em;
-    /*position: fixed;
-    top:0;*/
-    width: 58em;
-    z-index: 9999;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
+	margin: 1em 0;
+	padding: 0.5em;
+	border-bottom: 5px solid #ccc;
 }
 
 .header h1 {
-    float: left;
-    font: normal 1.5em 'Dancing Script',arial,serif;
+	float: left;
+	font-size: 2em;
+	line-height: 1em;
 }
 
 .header a {
-    color: #666;
+	color: #666;
+	text-decoration: none;
 }
 
 .header a:hover {
-    color: #999;
+	color: #999;
 }
 
 /* =NAV
 --------------------------------------------- */
 
 .nav {
-    font-family: 'Droid Sans',arial,serif;
-    float: right;
-    margin: 0 auto;
-    text-align: center;
+	float: right;
+	font-size: 0.875em;
+	text-align: center;
+	text-transform: uppercase;
 }
 
 .nav li {
-    border-left: 1px dotted #333;
+	float: left;
+	width: 10em;
+	border-right: 1px solid #ccc;
+}
+
+.nav li:last-child {
+	border-right: none;
+}
+
+.nav li a {
+	padding: 0.25em 0.5em;
+}
+
+/* =FOOTER
+--------------------------------------------- */
+
+.footer {
+	margin: 1em 0;
+	padding: 0.5em;
+	border-top: 1px solid #ccc;
+}
+
+.footer p {
+	color: #999;
+}
+
+/* =CONTENT
+--------------------------------------------- */
+
+.content {
+	padding: 1em;
+}
+
+.content h2 {
+	font-size: 3em;
+	margin-bottom: 1em;
+}
+
+.event_list {
+	margin: 0 5em;
+}
+
+form {
+	width: 30em;
+}
+
+label {
+	float: left;
+	width: 35%;
+	text-align: right;
+	clear: both;
+	padding: 0.25em 0;
+}
+
+input[type="text"], textarea {
+	float: left;
+	/*width: 60%;*/
+	border: 1px solid #999;
+	margin: 0.5em 1em;
+	padding: 0.25em 0;
+}
+
+form br {
+	display: none;
+}
+
+fieldset {
+	border: 1px solid #eee;
+	padding: 1em;
+	clear: both;
+}
+
+input[type="checkbox"] {
+	float: left;
+}
+
+/**/
+
+table
+{
+border-collapse:collapse;
+}
+table,th, td
+{
+border: 1px solid black;
+}
+
+
+/* =NAV
+--------------------------------------------- *
+
+.nav {
+    background: #000;
+    background: rgba(0,0,0,0.9);
+    float: right;
+    margin: 0 auto;
+    text-align: center;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.nav li {
+    border-right: 1px dotted #333;
     float: left;
     display: inline;
     font-size: 0.875em;
     text-align: center;
+	width: 10em;
 }
 
 .nav li a {
@@ -169,35 +208,8 @@ a {
     padding: 0.25em 1em;
 }
 
-/* =FOOTER
---------------------------------------------- */
-
-.footer {
-    border-top: 1px dotted #9b9b9b;
-    color: #999;
-    margin: 1em 0 0;
-    padding: 1em;
-}
-
-.footer .copyright {
-    float: left;
-}
-
-.footer .social {
-    float: right;
-}
-
-.footer .social img {
-    margin-top: -0.25em;
-    opacity: 0.5;
-}
-
-.footer .social img:hover {
-    opacity: 1;
-}
-
 /* =FORMS
---------------------------------------------- */
+--------------------------------------------- *
 
 fieldset fieldset {
 	padding: 10px;
