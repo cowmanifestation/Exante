@@ -87,13 +87,23 @@ end
 
 # View an event
 get '/event/:id' do
+	@title = "View Event"
+
 	@event = Event.get(params[:id])
 
 	erb :view_event
 end
 
-# Delete event
+# Delete event confirmation
 get '/event/:id/delete' do
+	@title = "Delete Event"
+
+	@event = Event.get(params[:id])
+	erb :delete_event
+end
+
+# Delete event
+delete '/event/:id' do
 	event = Event.get(params[:id])
 	unless event.nil?
 		event.destroy
