@@ -129,8 +129,23 @@ hr {
 	margin-bottom: 1em;
 }
 
-.event_list {
-	margin: 0 5em;
+	ul.event_list {
+	border-top: 1px dotted #ccc;
+}
+
+.event_list li {
+	list-style: none;
+	border-bottom: 1px dotted #ccc;
+	padding: 1em 0;
+}
+
+.event_list a {
+	font-size: 2em;
+}
+
+.event_list li a.btn {
+	float: right;
+	font-size: 1em;
 }
 
 form {
@@ -165,47 +180,6 @@ fieldset {
 
 input[type="checkbox"] {
 	float: left;
-}
-
-/**/
-
-table
-{
-border-collapse:collapse;
-}
-table,th, td
-{
-border: 1px solid black;
-}
-
-
-/* =NAV
---------------------------------------------- *
-
-.nav {
-    background: #000;
-    background: rgba(0,0,0,0.9);
-    float: right;
-    margin: 0 auto;
-    text-align: center;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-}
-
-.nav li {
-    border-right: 1px dotted #333;
-    float: left;
-    display: inline;
-    font-size: 0.875em;
-    text-align: center;
-	width: 10em;
-}
-
-.nav li a {
-    color: #fff;
-    display: block;
-    padding: 0.25em 1em;
 }
 
 /* =FORMS
