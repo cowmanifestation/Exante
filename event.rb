@@ -34,8 +34,11 @@ before do
 end
 
 get '/' do
-	@title = "Hello there!!!"
-	erb :home
+
+	# Temporary redirect till we have a dashboard
+	redirect '/event/all'
+	# @title = "Hello there!!!"
+	# erb :home
 end
 
 # New event form
