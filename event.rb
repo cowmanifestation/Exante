@@ -92,6 +92,7 @@ get '/event/:id' do
 	erb :view_event
 end
 
+# Delete event
 get '/event/:id/delete' do
 	event = Event.get(params[:id])
 	unless event.nil?
@@ -99,3 +100,47 @@ get '/event/:id/delete' do
 	end
 	redirect('/event/all')
 end
+
+# Edit event 
+get '/event/:id/edit' do
+	@title = "Edit event"
+	@script = "event.js"
+
+	@event = Event.get(params[:id])
+
+	erb :edit_event
+end
+
+# Update event
+put '/event/:id' do
+	#params.inspect
+	event = Event.get(params[:id])
+	event.title = params[:title]
+	event.description = params[:description]
+	event.location = params[:location]
+	event.guest_list = params[:guest_list]
+
+	start_date = params[:start_date]
+	event.start_date = Date.strptime(start_date, "%Y-%m-%d") unless start_date
+
+	start_time = params[:start_time]
+	event.start_time = DateTime.strptime("#{start_date} #{start_time}", "%Y-%m-%d %H:%M") unless start_time
+
+	end_date = params[:end_date]
+	event.end_date = Date.strptime(end_date, "%Y-%m-%d") unless end_date
+
+	end_time = params[:end_time]
+	event.end_time = DateTime.strptime("#{end_date} #{end_time}", "%Y-%m-%d %H:%M") unless end_time
+
+	# TODO: Handle All day events
+
+	if event.save
+		status 201
+		redirect '/event/' + event.id.to_s
+	else
+		status 412
+		redirect '/event/all'
+	end
+
+end
+
