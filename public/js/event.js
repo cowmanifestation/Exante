@@ -12,4 +12,11 @@ $(document).ready(function() {
         $("#end_time").toggle();
 		$("label[for='end_time']").toggle();
     });
+	if ($('#all_day').is(':checked')) {
+		// if checked toggle time once
+        $("#start_time").toggle();
+		$("label[for='start_time']").toggle();
+        $("#end_time").toggle();
+		$("label[for='end_time']").toggle();
+	}
 });
