@@ -139,16 +139,16 @@ put '/event/:id' do
 	event.guest_list = params[:guest_list]
 
 	start_date = params[:start_date]
-	event.start_date = Date.strptime(start_date, "%Y-%m-%d") unless start_date
+	event.start_date = start_date ? Date.strptime(start_date, "%Y-%m-%d") : nil
 
 	start_time = params[:start_time]
-	event.start_time = DateTime.strptime("#{start_date} #{start_time}", "%Y-%m-%d %H:%M") unless start_time
+	event.start_time = (start_date!="" && start_time!="") ? DateTime.strptime("#{start_date} #{start_time}", "%Y-%m-%d %H:%M") : nil
 
 	end_date = params[:end_date]
-	event.end_date = Date.strptime(end_date, "%Y-%m-%d") unless end_date
+	event.end_date = end_date ? Date.strptime(end_date, "%Y-%m-%d") : nil
 
 	end_time = params[:end_time]
-	event.end_time = DateTime.strptime("#{end_date} #{end_time}", "%Y-%m-%d %H:%M") unless end_time
+	event.end_time = (end_date!="" && end_time!="") ? DateTime.strptime("#{end_date} #{end_time}", "%Y-%m-%d %H:%M") : nil
 
 	event.all_day = params[:all_day] ? true : false
 	event.private_event = params[:private_event] ? true : false
