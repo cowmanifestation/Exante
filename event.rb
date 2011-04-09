@@ -5,8 +5,12 @@ require 'sinatra'
 require 'data_mapper'
 require 'date'
 
+# Include our utility functions
+require 'lib/utils'
+
 # gem install sqlite do_sqlite3 datamapper
 DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/db/exante.db")
+
 
 class Event
 	

@@ -6,10 +6,10 @@
 		<a href="/event/<%= event.id %>"><%= event.title %></a>
 		<p>Where: <%= event.location %></p>
 		<p><%= event.description %></p>
-		<p><%= event.start_date %></p>
-		<p><%= event.start_time %></p>
-		<p><%= event.end_date %></p>
-		<p><%= event.end_time %></p>
+		<p><%= event.start_date ? 'From ' + nice_date(event.start_date):'' %>
+		<%= event.start_time ? ' at ' + nice_time(event.start_time):'' %>
+		<%= event.end_date ? ' to ' + nice_date(event.end_date):'' %>
+		<%= event.end_time ? ' at ' + nice_time(event.end_time):'' %></p>
 		<p><%= event.all_day %></p>
 		<p>Who is coming: <%= event.guest_list %></p>
 		<p><%= event.private_event %></p>
