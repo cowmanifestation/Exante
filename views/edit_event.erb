@@ -22,13 +22,13 @@
         <label for="end_time">End Time</label><br />
         <input type="text" title="What time does it end at?" name="end_time" id="end_time" value="<%=@event.end_time %>" placeholder="17:30"><br />
       </fieldset>
-      <label for="all_day"><input type="checkbox" title="This event lasts 24 hours" name="all_day" id="all_day" value="All Day">All Day</label><br />
+      <label for="all_day"><input type="checkbox" title="This event lasts 24 hours" name="all_day" id="all_day" <%=@event.all_day ? 'checked="checked"':'' %> value="All Day">All Day</label><br />
     </fieldset>
     <label for="location">Location</label><br />
     <input type="text" title="Where is it happening?" maxlength="" size="" name="location" id="location" value="<%=@event.location %>"><br />
     <label for="guest_list">Guests</label><br />
     <textarea title="Guest email address list. One per-line." name="guest_list" id="guest_list" rows="5" cols="25"><%=@event.guest_list %></textarea><br />
-    <label for="privacy_setting"><input type="checkbox" title="This event is private" name="privacy_setting" id="privacy_setting" value="Private">Private</label><br />
+    <label for="private_event"><input type="checkbox" title="This event is private" name="private_event" id="privacy_setting" <%=@event.private_event ? 'checked="checked"':'' %> value="Private">Private</label><br />
     <fieldset>
       <input type="submit" value="Update" />
       <a href="/">Cancel</a>

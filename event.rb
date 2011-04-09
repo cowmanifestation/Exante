@@ -73,7 +73,8 @@ post '/event/create' do
 	end_time = params[:end_time]
 	event.end_time = DateTime.strptime("#{end_date} #{end_time}", "%Y-%m-%d %H:%M") unless end_time
 
-	# TODO: Handle All day events
+	event.all_day = params[:all_day] ? true : false
+	event.private_event = params[:private_event] ? true : false
 
 	if event.save
 		status 201
@@ -149,7 +150,8 @@ put '/event/:id' do
 	end_time = params[:end_time]
 	event.end_time = DateTime.strptime("#{end_date} #{end_time}", "%Y-%m-%d %H:%M") unless end_time
 
-	# TODO: Handle All day events
+	event.all_day = params[:all_day] ? true : false
+	event.private_event = params[:private_event] ? true : false
 
 	if event.save
 		status 201
