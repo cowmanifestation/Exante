@@ -7,12 +7,12 @@
 		<p>Where: <%= event.location %></p>
 		<p><%= event.description %></p>
 		<p><%= event.start_date ? 'From ' + nice_date(event.start_date):'' %>
-		<%= event.start_time ? ' at ' + nice_time(event.start_time):'' %>
+		<%= (!event.all_day && event.start_time) ? ' at ' + nice_time(event.start_time):'' %>
 		<%= event.end_date ? ' to ' + nice_date(event.end_date):'' %>
-		<%= event.end_time ? ' at ' + nice_time(event.end_time):'' %></p>
-		<p><%= event.all_day %></p>
+		<%= (!event.all_day && event.end_time) ? ' at ' + nice_time(event.end_time):'' %>
+		 <%= event.all_day ? '(all day)':'' %></p>
 		<p>Who is coming: <%= event.guest_list %></p>
-		<p><%= event.private_event %></p>
+		<p><%= event.private_event ? '(private)':'' %></p>
     	<a href="/event/<%= event.id %>/delete" class="btn">delete</a>
 	</li>
 <% end %>
