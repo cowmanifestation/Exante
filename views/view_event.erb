@@ -1,30 +1,13 @@
-  <fieldset>
-    <legend>Event Details</legend>
-    <label for="title">Title</label><br />
-    <input type="text" title="What is the event called?" maxlength="" size="" name="title" id="title" value="<%= @event.title %>"><br />
-    <label for="description">Description</label><br />
-    <textarea title="Enter a short description of the event" name="description" id="description" rows="5" cols="25"><%=@event.description %></textarea>
-    <fieldset>
-      <legend>When</legend>
-      <fieldset>
-        <legend>From</legend>
-        <label for="start_date">Start Date</label><br />
-        <input type="text" title="When does it start?" name="start_date" id="start_date" value="<%=@event.start_date %>"><br />
-        <label for="start_time">Start Time</label><br />
-        <input type="text" title="What time does it start at?" name="start_time" id="start_time" value="<%=@event.start_time %>" placeholder="1.00 p.m."><br />
-      </fieldset>
-      <fieldset id="to-date-time">
-        <legend>To</legend>
-        <label for="end_date">End Date</label><br />
-        <input type="text" title="When does it end?" name="end_date" id="end_date" value="<%=@event.end_date %>" placeholder="dd/mm/yy"><br />
-        <label for="end_time">End Time</label><br />
-        <input type="text" title="What time does it end at?" name="end_time" id="end_time" value="<%=@event.end_time %>" placeholder="1.00 p.m."><br />
-      </fieldset>
-      <input type="checkbox" title="This event lasts 24 hours" name="all_day" id="all_day" value="All Day"><label for="all_day">All Day</label><br />
-    </fieldset>
-    <label for="location">Location</label><br />
-    <input type="text" title="Where is it happening?" maxlength="" size="" name="location" id="location" value="<%=@event.location %>"><br />
-    <label for="guest_list">Guests</label><br />
-    <textarea title="Guest email address list. One per-line." name="guest_list" id="guest_list" rows="5" cols="25"><%=@event.guest_list %></textarea><br />
-    <input type="checkbox" title="This event is private" name="privacy_setting" id="privacy_setting" value="Private"><label for="privacy_setting">Private</label><br />
-  </fieldset>
+<ul class="event_list">
+    <li>
+		<p>Where: <%=@event.location %></p>
+		<p><%=@event.description %></p>
+		<p><%=@event.start_date ? 'From ' + nice_date(@event.start_date):'' %>
+		<%= (!@event.all_day && @event.start_time) ? ' at ' + nice_time(@event.start_time):'' %>
+		<%=@event.end_date ? ' to ' + nice_date(@event.end_date):'' %>
+		<%= (!@event.all_day && @event.end_time) ? ' at ' + nice_time(@event.end_time):'' %>
+		 <%=@event.all_day ? '(all day)':'' %></p>
+		<p>Who is coming: <%=@event.guest_list %></p>
+		<p><%=@event.private_event ? '(private)':'' %></p>
+	</li>
+</ul>

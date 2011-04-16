@@ -95,9 +95,9 @@ end
 
 # View an event
 get '/event/:id' do
-	@title = "View Event"
-
 	@event = Event.get(params[:id])
+
+	@title = "View Event : " + @event.title
 
 	erb :view_event
 end
