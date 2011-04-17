@@ -54,4 +54,5 @@ $(document).ready(function() {
 <input name="location" type="hidden" value="<%=@event.location %>" />
 <input name="privacy_type" type="hidden" value="<%=@event.private_event ? 'SECRET':'CLOSED' %>" />
 <button id="fb_connect"><%= (@event.fb_event_id ? "Re-share as new" : "Share") %> event on Facebook</button>
+<%= @event.fb_event_id ? " or <a href='http://www.facebook.com/event.php?eid=#{@event.fb_event_id}'>view event on FB</a>":'' %>
 </form>
