@@ -1,3 +1,34 @@
+<script>
+var fb_appId = "<%=@fb_app_id %>";
+
+$(document).ready(function() {
+
+	if(window.location.hash.length > 0) {
+		// Replace button label
+		$('#fb_connect').html('Publish event to Facebook');
+	}
+
+	$('#fb_connect').click(function() {
+
+		if(window.location.hash.length == 0) {
+			// No access token so lets get one
+			url = "https://www.facebook.com/dialog/oauth?client_id=" + 
+				 fb_appId  + "&redirect_uri=" + window.location +
+				 "&scope=create_event&response_type=token";
+			window.location.replace(url);
+			return false;
+
+		} else {
+			// Got access token so lets create new event
+			accessToken = window.location.hash.substring(1).match(/access_token=[^&]+/);
+			$('#access_token').val(accessToken[0].replace('access_token=', ''));
+		}
+
+	});
+});
+
+</script>
+
 <ul class="event_list">
     <li>
 		<p>Where: <%=@event.location %></p>
@@ -8,6 +39,19 @@
 		<%= (!@event.all_day && @event.end_time) ? ' at ' + nice_time(@event.end_time):'' %>
 		 <%=@event.all_day ? '(all day)':'' %></p>
 		<p>Who is coming: <%=@event.guest_list %></p>
-		<p><%=@event.private_event ? '(private)':'' %></p>
+		<p><%=@event.private_event ? '(private event)':'(public event)' %></p>
 	</li>
 </ul>
+
+<!-- publish event on facebook -->
+<form method="post" action="/event/fbcreate">
+<input name="event_id" type="hidden" value="<%=@event.id %>" />
+<input name="access_token" type="hidden" id="access_token" value="" />
+<input name="name" type="hidden" value="<%=@event.title %>" />
+<input name="description" type="hidden" value="<%=@event.description %>" />
+<input name="start_time" type="hidden" value="<%=@event.start_time %>" />
+<input name="end_time" type="hidden" value="<%=@event.end_time %>" />
+<input name="location" type="hidden" value="<%=@event.location %>" />
+<input name="privacy_type" type="hidden" value="<%=@event.private_event ? 'SECRET':'CLOSED' %>" />
+<button id="fb_connect"><%= (@event.fb_event_id ? "Re-share as new" : "Share") %> event on Facebook</button>
+</form>

@@ -4,6 +4,7 @@ require 'rubygems'
 require 'sinatra'
 require 'data_mapper'
 require 'date'
+require 'rest-client'
 
 # Include our utility functions
 require 'lib/utils'
@@ -27,6 +28,7 @@ class Event
 	property :location,			Text
 	property :guest_list,		Text
 	property :private_event,	Boolean
+	property :fb_event_id,		String
 	
 end
 
@@ -93,11 +95,36 @@ get '/event/all' do
 	erb :list_event
 end
 
+# New event on FB
+post '/event/fbcreate' do
+	@title = "Create new Facebook Event"
+
+	fb_event_id = JSON.parse(RestClient.post("https://graph.facebook.com/me/events", \
+	 :access_token => params[:access_token], :name => params[:name], \
+	 :description => params[:description], :start_time => params[:start_time], \
+	 :end_time => params[:end_time], :location => params[:location], :privacy_type => params[:privacy_type]))
+
+	 if params[:event_id] && fb_event_id['id']
+		# Save FB event_id for future reference
+		event = Event.get(params[:event_id])
+		event.fb_event_id = fb_event_id['id']
+		event.save
+	 end
+
+	redirect '/event/' + (params[:event_id] ? params[:event_id] : 'all')
+
+end
+
 # View an event
 get '/event/:id' do
 	@event = Event.get(params[:id])
 
 	@title = "View Event : " + @event.title
+
+	# FB Integration
+	# TODO: Move me to a config file
+	@fb_app_id = "211428925552469"
+	@script = "view_event.js"
 
 	erb :view_event
 end
