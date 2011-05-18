@@ -1,8 +1,42 @@
+<script>
+	$(document).ready(function(){
+		// Validate form 
+		$("form").submit(function(){
+			valid = true;
+
+			// Check required
+			$('input[required="required"]').each(function(i) {
+				if(this.value=='') {
+					$(this).addClass('required');
+					valid = false;
+				}
+			});
+
+			// Compare password
+			if($('#password').val() != $("#cpassword").val()) {
+				alert('passwd mismatch');
+				valid = false;
+			}
+
+			if (!valid)
+				return false;
+		});
+
+		// Remove input background if focused
+		$('input[type="text"], input[type="password"]').focus(function(){
+			$(this).removeClass('required');
+		});
+	});
+</script>
 <form method="post" action="/user/create">
   <fieldset>
     <legend>User Details</legend>
     <label for="user">User Name</label><br />
-    <input type="text" title="User Name" maxlength="" size="" name="user" id="user" value=""><br />
+    <input type="text" title="User Name" maxlength="" size="" name="user" id="user" value="" required="required" /><br />
+    <label for="password">Password</label><br />
+    <input type="password" title="Password" maxlength="" size="" name="password" id="password" value="" required="required"><br />
+    <label for="cpassword">Confirm Password</label><br />
+    <input type="password" title="Confirm password" maxlength="" size="" name="cpassword" id="cpassword" value="" required="required"><br />
     <label for="first_name">First Name</label><br />
     <input type="text" title="First Name" maxlength="" size="" name="first_name" id="first_name" value=""><br />
     <label for="last_name">Last Name</label><br />

@@ -56,6 +56,10 @@ hr {
 	background: #666;
 }
 
+.required {
+	background: #ffcccc;
+}
+
 /* =HEADER
 --------------------------------------------- */
 
@@ -160,7 +164,7 @@ label {
 	padding: 0.25em 0;
 }
 
-input[type="text"], textarea {
+input[type="text"], input[type="password"], textarea {
 	float: left;
 	/*width: 60%;*/
 	border: 1px solid #999;

@@ -60,6 +60,9 @@ post '/user/create' do
 
 	user.status = true
 
+	# Serverside Validation
+	return unless (user.user && user.password && user.password == params[:cpassword])
+
 	if user.save
 		status 201
 		redirect '/user/' + user.id.to_s
