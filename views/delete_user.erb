@@ -1,0 +1,5 @@
+<h3>Are you sure you want to delete user : <%=@user.user %>?</h3>
+<form method="post" action="/user/<%=@user.id %>">
+  <input name="_method" type="hidden" value="delete" /> 
+  <input type="submit" value="Delete" /> or <a href="/">Cancel </a>
+</form>

@@ -82,3 +82,18 @@ get '/user/:id' do
 	erb :view_user
 end
 
+# Delete user 
+get '/user/:id/delete' do
+	@title = "Delete User"
+
+	@user = User.get(params[:id])
+	erb :delete_user
+end
+
+delete '/user/:id' do
+	user = User.get(params[:id])
+	unless user.nil?
+		user.destroy
+	end
+	redirect('/user/all')
+end
