@@ -70,3 +70,12 @@ post '/user/create' do
 
 end
 
+# View user
+get '/user/:id' do
+	@user = User.get(params[:id])
+
+	@title = "View User : " + @user.user
+
+	erb :view_user
+end
+
