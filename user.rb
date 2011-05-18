@@ -39,7 +39,34 @@ end
 # List users
 get '/user/all' do
 	@title = "List of users!"
-	@users = User.all(:order => [:id.desc])
+	@users = User.all(:order => [:user.asc])
 	erb :list_users
+end
+
+# New user form
+get '/user/new' do
+	@title = "Create new user..."
+	erb :new_user
+end
+
+# Create user
+post '/user/create' do
+	user = User.new
+	user.user = params[:user]
+	user.password = params[:password]
+	user.first_name = params[:first_name]
+	user.last_name = params[:last_name]
+	user.email = params[:email]
+
+	user.status = true
+
+	if user.save
+		status 201
+		redirect '/user/' + user.id.to_s
+	else
+		status 412
+		redirect '/user/all'
+	end
+
 end
 
