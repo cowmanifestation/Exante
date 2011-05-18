@@ -1,0 +1,13 @@
+<p>Would you like to <a href="/user/new" class="btn">create</a> one more?</p>
+	<img src="../../images/penguin.png" alt="Tux waving"/>
+<ul class="event_list">
+<% @users.each_with_index do |user,i| %>
+    <li <%= 'class="alt"' if i%2==1 %>>
+		<a href="/user/<%= user.id %>"><%= user.user %></a>
+		<p>Full Name: <%= user.first_name %> <%= user.last_name %></p>
+		<p>Email: <%= user.email %></p>
+		<p>Status: <%= user.status ? 'Enabled':'Disabled' %></p>
+    	<a href="/user/<%= user.id %>/delete" class="btn">delete</a>
+	</li>
+<% end %>
+</ul>
