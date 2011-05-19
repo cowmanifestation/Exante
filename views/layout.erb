@@ -25,20 +25,17 @@
 <body>
     <div data-role="page" class="page">
 	  <div data-role="header" class="header section">
-		  <h1><a href="/">Exante</a></h1>
-		  <div class="nav section">
-		  <ul>
-			  <li><a href="/event/new">Create</a></li>
-			  <li><a href="/event/all">List</a></li>
-		  </ul>
-		  </div><!-- nav -->
+		  <h1>Exante</h1>
 	  </div><!-- header -->
 	  <div data-role="content" class="content">
 		<h2><%= @title %></h2>
 		<%= yield %>
 	  </div><!-- content -->
 	  <div data-role="footer" class="footer section">
-		  <p class="copyright">Copyright &copy; 2011 Exante App.</p>
+		  <div class="nav section">
+			  <a data-role="button" href="/event/new">Create</a>
+			  <a data-role="button" href="/event/all">List</a>
+		  </div><!-- nav -->
 	  </div><!-- /footer -->
     </div>
 </body>
