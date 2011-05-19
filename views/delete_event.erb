@@ -1,5 +1,6 @@
-<h3>Are you sure you want to delete event : <%=@event.title %>?</h3>
+<p>Are you sure you want to delete event: <strong><%=@event.title %></b>?</p>
 <form method="post" action="/event/<%=@event.id %>">
   <input name="_method" type="hidden" value="delete" /> 
-  <input type="submit" value="Delete" /> or <a href="/">Cancel </a>
+  <input data-theme="b" data-icon="minus" data-inline="true" type="submit" value="Delete" />
+  <a data-icon="back" data-role="button" data-inline="true" href="/">Cancel </a>
 </form>

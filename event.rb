@@ -119,7 +119,7 @@ end
 get '/event/:id' do
 	@event = Event.get(params[:id])
 
-	@title = "View Event : " + @event.title
+	@title = @event.title
 
 	# FB Integration
 	# TODO: Move me to a config file

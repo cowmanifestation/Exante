@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     
-    <title>Exante &raquo; <%= @title %></title>
+    <title>Exante - <%= @title %></title>
     
     <meta name="description" content="An event planning application">
     
@@ -25,15 +25,14 @@
 <body>
     <div data-role="page" class="page">
 	  <div data-role="header" class="header">
-		  <h1>Exante</h1>
+		<h1>Exante</h1>
 	  </div><!-- header -->
 	  <div data-role="content" class="content">
 		<h2><%= @title %></h2>
 		<%= yield %>
 	  </div><!-- content -->
 	  <div data-role="footer" class="footer ui-bar">
-		  <a data-role="button" data-icon="plus" href="/event/new">Create</a>
-		  <a data-role="button" data-icon="grid" href="/event/all">List</a>
+		<a data-role="button" data-icon="grid" href="/event/all">List All Events</a>
 	  </div><!-- /footer -->
     </div>
 </body>

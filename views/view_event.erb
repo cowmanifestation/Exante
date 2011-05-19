@@ -29,8 +29,7 @@ $(document).ready(function() {
 
 </script>
 
-<ul class="event_list">
-    <li>
+<div class="show_event">
 		<p>Where: <%=@event.location %></p>
 		<p><%=@event.description %></p>
 		<p><%=@event.start_date ? 'From ' + nice_date(@event.start_date):'' %>
@@ -40,8 +39,7 @@ $(document).ready(function() {
 		 <%=@event.all_day ? '(all day)':'' %></p>
 		<p>Who is coming: <%=@event.guest_list %></p>
 		<p><%=@event.private_event ? '(private event)':'(public event)' %></p>
-	</li>
-</ul>
+</div>
 
 <!-- publish event on facebook -->
 <form method="post" action="/event/fbcreate">
@@ -53,6 +51,6 @@ $(document).ready(function() {
 <input name="end_time" type="hidden" value="<%=@event.end_time %>" />
 <input name="location" type="hidden" value="<%=@event.location %>" />
 <input name="privacy_type" type="hidden" value="<%=@event.private_event ? 'SECRET':'CLOSED' %>" />
-<button id="fb_connect"><%= (@event.fb_event_id ? "Re-share as new" : "Share") %> event on Facebook</button>
+<button data-inline="true" data-theme="b" id="fb_connect"><%= (@event.fb_event_id ? "Re-share as new" : "Share") %> event on Facebook</button>
 <%= @event.fb_event_id ? " or <a href='http://www.facebook.com/event.php?eid=#{@event.fb_event_id}'>view event on FB</a>":'' %>
 </form>
