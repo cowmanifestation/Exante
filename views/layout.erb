@@ -24,18 +24,16 @@
 
 <body>
     <div data-role="page" class="page">
-	  <div data-role="header" class="header section">
+	  <div data-role="header" class="header">
 		  <h1>Exante</h1>
 	  </div><!-- header -->
 	  <div data-role="content" class="content">
 		<h2><%= @title %></h2>
 		<%= yield %>
 	  </div><!-- content -->
-	  <div data-role="footer" class="footer section">
-		  <div class="nav section">
-			  <a data-role="button" href="/event/new">Create</a>
-			  <a data-role="button" href="/event/all">List</a>
-		  </div><!-- nav -->
+	  <div data-role="footer" class="footer ui-bar">
+		  <a data-role="button" data-icon="plus" href="/event/new">Create</a>
+		  <a data-role="button" data-icon="grid" href="/event/all">List</a>
 	  </div><!-- /footer -->
     </div>
 </body>
