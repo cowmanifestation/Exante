@@ -8,10 +8,12 @@
     
     <meta name="description" content="An event planning application">
     
-    <link rel="stylesheet" href="/css/screen.css">
-    <link rel="stylesheet" href="/css/jq/smoothness/jquery-ui.css">
+    <!--link rel="stylesheet" href="/css/screen.css"-->
+    <!--link rel="stylesheet" href="/css/jq/smoothness/jquery-ui.css"-->
+	<link rel="stylesheet" href="/css/jquery.mobile-1.0a4.1.min.css" />
 	<script src="/js/jquery.js"></script>
 	<script src="/js/jquery-ui.js"></script>
+	<script src="/js/jquery.mobile-1.0a4.1.min.js"></script>
 	<%if @script%>
 		<script src="/js/<%= @script %>"></script>
 	<%end%>
@@ -21,8 +23,8 @@
 </head>
 
 <body>
-    <div class="page">
-	  <div class="header section">
+    <div data-role="page" class="page">
+	  <div data-role="header" class="header section">
 		  <h1><a href="/">Exante</a></h1>
 		  <div class="nav section">
 		  <ul>
@@ -31,13 +33,11 @@
 		  </ul>
 		  </div><!-- nav -->
 	  </div><!-- header -->
-	  <hr />
-	  <div class="content">
+	  <div data-role="content" class="content">
 		<h2><%= @title %></h2>
 		<%= yield %>
 	  </div><!-- content -->
-	  <hr />
-	  <div class="footer section">
+	  <div data-role="footer" class="footer section">
 		  <p class="copyright">Copyright &copy; 2011 Exante App.</p>
 	  </div><!-- /footer -->
     </div>

@@ -1,36 +1,36 @@
 <form method="post" action="/event/create">
   <fieldset>
-    <legend>Event Details</legend>
-    <label for="title">Title</label><br />
-    <input type="text" title="What is the event called?" maxlength="" size="" name="title" id="title" value=""><br />
-    <label for="description">Description</label><br />
-    <textarea title="Enter a short description of the event" name="description" id="description" rows="5" cols="25"></textarea>
+    <ul data-role="listview" data-theme="c" data-dividertheme="b" data-inset="true">
+      <li data-role="list-divider">Event Details</li>
+      <li><label for="title">Title</label><br />
+      <input type="text" title="What is the event called?" maxlength="" size="" name="title" id="title" value=""><br /></li>
+      <li><label for="description">Description</label><br />
+      <textarea title="Enter a short description of the event" name="description" id="description" rows="5" cols="25"></textarea></li>
+    </ul>
+    <ul data-role="listview" data-theme="c" data-dividertheme="b" data-inset="true">
+      <li data-role="list-divider">When</li>
+      <li><label for="start_date">Start Date</label><br />
+      <input type="text" title="When does it start?" name="start_date" id="start_date" value="" placeholder="yyyy-mm-dd"></li>
+      <li><label for="start_time">Start Time</label><br />
+      <input type="text" title="What time does it start at?" name="start_time" id="start_time" value="" placeholder="8:30"></li>
+      <li><label for="end_date">End Date</label><br />
+      <input type="text" title="When does it end?" name="end_date" id="end_date" value="" placeholder="yyyy-mm-dd"></li>
+      <li><label for="end_time">End Time</label><br />
+      <input type="text" title="What time does it end at?" name="end_time" id="end_time" value="" placeholder="17:30"></li>
+      <li><label for="all_day" data-inline="true">
+      <input type="checkbox" title="This event lasts 24 hours" name="all_day" id="all_day" value="All Day">All Day</label></li>
+    </ul>
+    <ul data-role="listview" data-theme="c" data-dividertheme="b" data-inset="true">
+      <li><label for="location">Location</label><br />
+      <input type="text" title="Where is it happening?" maxlength="" size="" name="location" id="location" value=""></li>
+      <li><label for="guest_list">Guests</label><br />
+      <textarea title="Guest email address list. One per-line." name="guest_list" id="guest_list" rows="5" cols="25"></textarea></li>
+      <li><label for="privacy_setting" data-inline="true">
+      <input type="checkbox" title="This event is private" name="privacy_setting" id="privacy_setting" value="Private">Private</label></li>
+    </ul>
     <fieldset>
-      <legend>When</legend>
-      <fieldset>
-        <legend>From</legend>
-        <label for="start_date">Start Date</label><br />
-        <input type="text" title="When does it start?" name="start_date" id="start_date" value="" placeholder="yyyy-mm-dd"><br />
-        <label for="start_time">Start Time</label><br />
-        <input type="text" title="What time does it start at?" name="start_time" id="start_time" value="" placeholder="8:30"><br />
-      </fieldset>
-      <fieldset id="to-date-time">
-        <legend>To</legend>
-        <label for="end_date">End Date</label><br />
-        <input type="text" title="When does it end?" name="end_date" id="end_date" value="" placeholder="yyyy-mm-dd"><br />
-        <label for="end_time">End Time</label><br />
-        <input type="text" title="What time does it end at?" name="end_time" id="end_time" value="" placeholder="17:30"><br />
-      </fieldset>
-      <label for="all_day"><input type="checkbox" title="This event lasts 24 hours" name="all_day" id="all_day" value="All Day">All Day</label><br />
-    </fieldset>
-    <label for="location">Location</label><br />
-    <input type="text" title="Where is it happening?" maxlength="" size="" name="location" id="location" value=""><br />
-    <label for="guest_list">Guests</label><br />
-    <textarea title="Guest email address list. One per-line." name="guest_list" id="guest_list" rows="5" cols="25"></textarea><br />
-    <label for="privacy_setting"><input type="checkbox" title="This event is private" name="privacy_setting" id="privacy_setting" value="Private">Private</label><br />
-    <fieldset>
-      <input type="submit" value="Create" />
-      <a href="/">Cancel</a>
+      <input type="submit" data-theme="b" data-inline="true" value="Create" />
+      <a data-role="button" data-inline="true" href="/">Cancel</a>
     </fieldset>
   </fieldset>
 </form>
