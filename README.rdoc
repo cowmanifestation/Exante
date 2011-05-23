@@ -21,3 +21,6 @@ Requires ruby 1.9.2.
 
 == Status
 Needs a lot of work. Not alpha; not even prototype. Not ready!
+
+== Todo
+- Finish writing tests
