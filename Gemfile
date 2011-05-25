@@ -1,6 +1,6 @@
 source "http://rubygems.org"
 gem "sinatra"
-gem "haml"
+gem "shotgun"
 gem "data_mapper"
 gem "rest-client"
 gem "webrat"

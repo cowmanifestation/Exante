@@ -19,7 +19,27 @@ class EventTest < Test::Unit::TestCase
   end
 
   test "can access home page" do
+    visit "/event/all"
+    assert_contain("Wow, a list of events!")
+  end
+
+  test "form entry" do
+    title = "Surprise Party"
+
     visit "/event/new"
-#assert_contain("Welcome to the Cookbook!")
+    fill_in "title", :with => title
+    click_button "Create"
+    assert_contain(title)
+  end
+
+  test "first event exists after adding second" do
+    ["Fun", "Run", "Sun"].each do |e|
+        visit "/event/new"
+        fill_in "title", :with=> e
+        click_button "Create"
+    end
+#    assert_contain("Fun")
+#    assert_contain("Run")
+#    assert_contain("Sun")
   end
 end
