@@ -3,8 +3,7 @@ gem "sinatra"
 gem "shotgun"
 gem "data_mapper"
 gem "rest-client"
-gem "webrat"
-gem "contest"
+gem "capybara"
 
 group :development do
 	gem "dm-sqlite-adapter"
