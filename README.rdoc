@@ -24,7 +24,7 @@ Unless otherwise specified all code is released under GPL v3. See http://www.gnu
 There are comments to help you along but it is pretty basic code, so everything should make sense pretty quickly.
 
 == Compatibility
-Requires ruby 1.9.2.
+Requires ruby 1.9.2. (Seems to work with 1.8.7 as well)
 
 == Status
 Needs a lot of work. Not alpha; not even prototype. Not ready!
